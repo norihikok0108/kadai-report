@@ -13,10 +13,22 @@ import javax.persistence.Table;
 
 @Table(name = "employees")
 @NamedQueries({
-        @NamedQuery(name = "getAllEmployees", query = "select e from Employee as e order by e.id desc"),
-        @NamedQuery(name = "getEmployeesCount", query = "select count(e) from Employee as e"),
-        @NamedQuery(name = "checkRegisterdCode", query = "select count(e) from Employee as e where e.code = :code"),
-        @NamedQuery(name = "checkLoginCodeAndPassword", query = "select e from Employee as e where e.delete_flag = 0 and e.code = :code and e.password = :pass")
+        @NamedQuery(
+                name = "getAllEmployees", 
+                query = "select e from Employee as e order by e.id desc"
+                ),
+        @NamedQuery(
+                name = "getEmployeesCount", 
+                query = "select count(e) from Employee as e"
+                ),
+        @NamedQuery(
+                name = "checkRegisteredCode", 
+                query = "select count(e) from Employee as e where e.code = :code"
+                ),
+        @NamedQuery(
+                name = "checkLoginCodeAndPassword", 
+                query = "select e from Employee as e where e.delete_flag = 0 and e.code = :code and e.password = :pass"
+                )
 })
 @Entity
 public class Employee {
@@ -98,7 +110,7 @@ public class Employee {
         return updated_at;
     }
 
-    public void setUpdate_at(Timestamp updated_at) {
+    public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
     }
 
