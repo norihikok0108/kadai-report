@@ -37,8 +37,8 @@ public class TopPageIndexServlet extends HttpServlet {
         }
 	    List<Report> reports = em.createNamedQuery("getMyAllReports", Report.class)
 	                             .setParameter("employee", login_employee)
-	                             .setFirstResult(15 * (page - 1))
-	                             .setMaxResults(15)
+	                             .setFirstResult(5 * (page - 1))
+	                             .setMaxResults(5)
 	                             .getResultList();
 
 	    long reports_count = (long)em.createNamedQuery("getMyReportsCount", Long.class)
@@ -50,6 +50,7 @@ public class TopPageIndexServlet extends HttpServlet {
 	    request.setAttribute("reports", reports);
 	    request.setAttribute("reports_count", reports_count);
 	    request.setAttribute("page", page);
+
 
 	    if(request.getSession().getAttribute("flush") != null) {
             request.setAttribute("flush", request.getSession().getAttribute("flush"));

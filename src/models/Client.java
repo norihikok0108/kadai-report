@@ -23,7 +23,7 @@ import javax.persistence.Table;
         query = "SELECT c FROM Client AS c ORDER BY c.id DESC"
         ),
     @NamedQuery(
-        name = "getCliestsCount",
+        name = "getClientsCount",
         query = "SELECT COUNT(c) FROM Client AS c"
         ),
 })
